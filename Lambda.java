@@ -4,16 +4,16 @@ interface LambdaInter {
     void call();
 }
 interface Vehicle {
-    void run();
+    void run(double speed);
 }
 interface Transaction{
     void payment(int a);
 }
 interface Create{
-    void draw();
+    void draw(String dia);
         }
 interface Switch {
-    void on();
+    boolean state(boolean x);
     }
     interface Employee {
     void work();
@@ -22,7 +22,7 @@ interface Switch {
         void study();
     }
     interface Calculation {
-        void sum();
+        void sum(int x,int y);
     }
     interface Cat {
         void sleeping();
@@ -38,8 +38,8 @@ public class Lambda {
                 };
 
 //2
-         Vehicle vc = ()->{
-            System.out.println("This is Car");
+         Vehicle vc = (double speed)->{
+            System.out.println("This is Car running at speed of "+speed);
         };
 
 //3
@@ -47,12 +47,12 @@ public class Lambda {
             System.out.println("Transaction is in process...");
         };
 //4
-        Create cr = ()-> {
+        Create cr = (String dia)-> {
             System.out.println("Drawing...");
         };
 //5
-        Switch sw = ()-> {
-            System.out.println("Turning on...");
+        Switch sw = (boolean x)-> {
+            return x;
         };
 //6
         Employee em = ()-> {
@@ -63,8 +63,8 @@ public class Lambda {
             System.out.println("Studying...");
         };
 //8
-        Calculation cal = ()->{
-            System.out.println("Calculating");
+        Calculation cal = (int x, int y)->{
+            System.out.println("Sum is "+(x+y));
         };
 //9
         Cat cat =()->{
@@ -76,13 +76,13 @@ public class Lambda {
         };
 
         lam.call();
-        vc.run();
+        vc.run(26.5);
         tr.payment(100);
-        cr.draw();
-        cal.sum();
+        cr.draw("rectangle");
+        cal.sum(45,67);
         cat.sleeping();
         clk.click();
-        sw.on();
+        sw.state(true);
         em.work();
         st.study();
 
